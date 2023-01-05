@@ -30,4 +30,8 @@ public class PessoaService {
       }
       return null;
   }
+
+  public List<PessoaEntity> buscarPessoaPorStatusTrue(){
+        return  this.repository.findByStatus(true);
+  }
 }

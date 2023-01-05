@@ -28,5 +28,9 @@ public class PessoaController {
     public PessoaEntity buscarPorId(@PathVariable("id") Long id){
         return pessoaService.buscaPessoaPorId(id);
     }
+@GetMapping("/status-true")
+    public List<PessoaEntity> buscarStatusTrue(){
+        return pessoaService.buscarPessoaPorStatusTrue();
+    }
     }
 
