@@ -1,6 +1,7 @@
 package tech.devinhouse.controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import tech.devinhouse.entity.PessoaEntity;
@@ -12,7 +13,7 @@ public class PessoaController {
 
     private PessoaService pessoaService;
 
-    public PessoaController(PessoaService pessoaService){
+    public PessoaController(@RequestBody PessoaService pessoaService){
         this.pessoaService = pessoaService;
     }
     @PostMapping
