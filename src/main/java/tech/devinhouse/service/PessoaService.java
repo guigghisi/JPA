@@ -5,6 +5,7 @@ import tech.devinhouse.entity.PessoaEntity;
 import tech.devinhouse.repository.PessoaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PessoaService {
@@ -19,4 +20,14 @@ public class PessoaService {
         repository.save(pessoa);
   }
 
+  public List<PessoaEntity> buscarTodasAsPessoas(){
+        return repository.findAll();
+  }
+  public PessoaEntity buscaPessoaPorId(Long id){
+      Optional<PessoaEntity> byId =repository.findById(id);
+      if(byId.isPresent()){
+          return byId.get();
+      }
+      return null;
+  }
 }

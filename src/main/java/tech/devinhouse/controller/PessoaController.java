@@ -1,11 +1,11 @@
 package tech.devinhouse.controller;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import jakarta.websocket.server.PathParam;
+import org.springframework.web.bind.annotation.*;
 import tech.devinhouse.entity.PessoaEntity;
 import tech.devinhouse.service.PessoaService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/pessoas")
@@ -20,4 +20,13 @@ public class PessoaController {
     public void save(PessoaEntity pessoa){
 
     }
-}
+    @GetMapping
+    public List<PessoaEntity> buscarTudo(){
+        return  pessoaService.buscarTodasAsPessoas();
+    }
+    @GetMapping("/{id}")
+    public PessoaEntity buscarPorId(@PathVariable("id") Long id){
+        return pessoaService.buscaPessoaPorId(id);
+    }
+    }
+
