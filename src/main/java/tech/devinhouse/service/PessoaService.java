@@ -10,28 +10,29 @@ import java.util.Optional;
 @Service
 public class PessoaService {
 
-    private PessoaRepository repository;
+    private final PessoaRepository repository;
 
-    public PessoaService(PessoaRepository repository){
+    public PessoaService(PessoaRepository repository) {
         this.repository = repository;
     }
 
-  public void insert(PessoaEntity pessoa){
+    public void save(PessoaEntity pessoa) {
         repository.save(pessoa);
-  }
+    }
 
-  public List<PessoaEntity> buscarTodasAsPessoas(){
+    public List<PessoaEntity> buscarTodasAsPessoas() {
         return repository.findAll();
-  }
-  public PessoaEntity buscaPessoaPorId(Long id){
-      Optional<PessoaEntity> byId =repository.findById(id);
-      if(byId.isPresent()){
-          return byId.get();
-      }
-      return null;
-  }
+    }
 
-  public List<PessoaEntity> buscarPessoaPorStatusTrue(){
-        return  this.repository.findByStatus(true);
-  }
+    public PessoaEntity buscaPessoaPorId(Long id) {
+        Optional<PessoaEntity> byId = repository.findById(id);
+        if (byId.isPresent()) {
+            return byId.get();
+        }
+        return null;
+    }
+
+    public List<PessoaEntity> buscarPessoaPorStatusTrue() {
+        return this.repository.findByStatus(true);
+    }
 }
