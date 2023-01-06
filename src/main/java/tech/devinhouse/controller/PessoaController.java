@@ -45,5 +45,10 @@ public class PessoaController {
     public void deletePessoaPorId(@PathVariable("id") Long id) {
         pessoaService.deletePorId(id);
     }
+
+    @GetMapping("/filter")
+    public List<PessoaEntity> buscaPessoasPeloFiltro(@RequestParam("q") String filter) {
+        return pessoaService.filtrarPessoas(filter);
+    }
 }
 

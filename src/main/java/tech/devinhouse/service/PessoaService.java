@@ -17,15 +17,15 @@ public class PessoaService {
     }
 
     public void save(PessoaEntity pessoa) {
-        repository.save(pessoa);
+        this.repository.save(pessoa);
     }
 
     public List<PessoaEntity> buscarTodasAsPessoas() {
-        return repository.findAll();
+        return this.repository.findAll();
     }
 
     public PessoaEntity buscaPessoaPorId(Long id) {
-        Optional<PessoaEntity> byId = repository.findById(id);
+        Optional<PessoaEntity> byId = this.repository.findById(id);
         if (byId.isPresent()) {
             return byId.get();
         }
@@ -39,4 +39,9 @@ public class PessoaService {
     public void deletePorId(Long id) {
         this.repository.deleteById(id);
     }
+
+    public List<PessoaEntity> filtrarPessoas(String filter) {
+        return this.repository.buscarPessoasPorNomeOuEmail(filter);
+    }
 }
+
