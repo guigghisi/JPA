@@ -40,5 +40,10 @@ public class PessoaController {
     public void updatePessoa(@RequestBody PessoaEntity pessoa) {
         pessoaService.save(pessoa);
     }
+
+    @DeleteMapping("/{id}")
+    public void deletePessoaPorId(@PathVariable("id") Long id) {
+        pessoaService.deletePorId(id);
+    }
 }
 

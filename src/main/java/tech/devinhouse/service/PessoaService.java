@@ -35,4 +35,8 @@ public class PessoaService {
     public List<PessoaEntity> buscarPessoaPorStatusTrue() {
         return this.repository.findByStatus(true);
     }
+
+    public void deletePorId(Long id) {
+        this.repository.deleteById(id);
+    }
 }
